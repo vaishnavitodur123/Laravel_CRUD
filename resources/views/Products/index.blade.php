@@ -40,7 +40,7 @@
                 <th>Description</th>
                 <th>Edit</th>
                 <th>Delete</th>
-                <th>Deleted At</th>
+
 
             </tr>
             @foreach ($products as $product)
@@ -59,7 +59,11 @@
                             <input class="btn btn-sm btn-danger" type="submit" value="Delete">
                         </form>
                     </td>
+
+
+
                 </tr>
+
 
             @endforeach
         </table>
@@ -68,7 +72,17 @@
             <button class="btn btn-success"><a class="a" href="{{route('products.create')}}">Create a New
                     Product</a></button>
         </div>
+        <br>
+        <div class="d-flex">
+            <a href="{{ route('products.trash') }}" class="btn btn-secondary">
+                View Trash
+            </a>
+        </div>
+
+
+
     @endsection
+
 
 </body>
 

@@ -50,6 +50,7 @@
                         <div>
                             <input type="submit" value="Save a New Product" class="btn btn-primary">
                         </div>
+                       
                     </form>
 
                 </div>

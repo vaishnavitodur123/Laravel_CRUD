@@ -60,4 +60,35 @@ class ProductController extends Controller
         return redirect(route('products.index'))->with('success', 'Product deleted successfully');
     }
 
+    public function restore($id)
+    {
+        Product::onlyTrashed()
+            ->where('id', $id)
+            ->restore();
+
+        return redirect()->route('products.index');
+
+    }
+
+    public function trash()
+    {
+        $products = Product::onlyTrashed()->get();
+        return view(
+            'products.trash',
+            ['products' => $products]
+        );
+    }
+
+
+    public function forcedelete($id)
+    {
+   
+            Product::onlyTrashed()->where('id', $id)->forceDelete();
+        return redirect()->route('products.trash');
+
+    }
+
+
+
+
 }
