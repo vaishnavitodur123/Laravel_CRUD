@@ -10,3 +10,4 @@ Route::post('/products', [ProductController::class, 'store'])->name('products.st
 Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
 Route::put('/products/{product}/update', [ProductController::class, 'update'])->name('products.update');
 Route::delete('/products/{product}/destroy', [ProductController::class, 'destroy'])->name('products.destroy');
+Route::restore('/products/{product}/restore', [ProductController::class, 'restore'])->name('products.restore');

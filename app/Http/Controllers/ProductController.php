@@ -12,7 +12,7 @@ class ProductController extends Controller
     {
         $products = Product::all();
         return view('products.index', ['products' => $products]);
-        
+
     }
 
     public function create()
@@ -39,23 +39,25 @@ class ProductController extends Controller
         return view('products.edit', ['product' => $product]);
     }
 
-    public function update(Product $product, Request $request){
-          $data = $request->validate([
+    public function update(Product $product, Request $request)
+    {
+        $data = $request->validate([
             'name' => 'required',
             'quantity' => 'required|numeric',
             'price' => 'required|decimal:0,2',
             'description' => 'required',
         ]);
 
-      $product->update($data); //update method
+        $product->update($data); //update method for Product Model
 
-      return redirect(route('products.index'))->with('success','Product updated successfully');
+        return redirect(route('products.index'))->with('success', 'Product updated successfully');
     }
 
-    public function destroy(Product $product){
-        $product->delete(); //delete method
+    public function destroy(Product $product)
+    {
+        $product->delete(); //delete method for Product Model
 
-        return redirect(route('products.index'))->with('success','Product deleted successfully');
+        return redirect(route('products.index'))->with('success', 'Product deleted successfully');
     }
 
 }
