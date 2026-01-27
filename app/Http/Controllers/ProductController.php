@@ -29,7 +29,7 @@ class ProductController extends Controller
             'description' => 'required',
         ]);
 
-        $newProduct = Product::create($data);
+        Product::create($data);  //Product comes from Model 
 
         return redirect(route('products.index'));
     }
