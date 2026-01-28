@@ -82,11 +82,12 @@ class ProductController extends Controller
 
     public function forcedelete($id)
     {
-   
-            Product::onlyTrashed()->where('id', $id)->forceDelete();
+
+        Product::onlyTrashed()->where('id', $id)->forceDelete();
         return redirect()->route('products.trash');
 
     }
+
 
 
 
